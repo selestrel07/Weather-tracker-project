@@ -1,8 +1,14 @@
 package dev.selestrel.spring.weathertracker.dto;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+
 public class MeasurementDTO {
-    private double value;
-    private boolean raining;
+    @NotNull(message = "Temperature value should not be empty")
+    private Double value;
+    @NotNull(message = "Raining status should not be empty")
+    private Boolean raining;
+    @NotNull(message = "Sensor data should not be empty")
     private SensorDTO sensor;
 
     public double getValue() {
