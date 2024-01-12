@@ -9,6 +9,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "measurement")
 public class Measurement {
@@ -20,6 +22,8 @@ public class Measurement {
     private double value;
     @Column(name = "raining")
     private boolean raining;
+    @Column(name = "registered_at")
+    private LocalDateTime registeredAt;
     @ManyToOne
     @JoinColumn(name = "sensor_id", referencedColumnName = "sensor_id")
     private Sensor sensor;
@@ -57,5 +61,13 @@ public class Measurement {
 
     public void setSensor(Sensor sensor) {
         this.sensor = sensor;
+    }
+
+    public LocalDateTime getRegisteredAt() {
+        return registeredAt;
+    }
+
+    public void setRegisteredAt(LocalDateTime registeredAt) {
+        this.registeredAt = registeredAt;
     }
 }

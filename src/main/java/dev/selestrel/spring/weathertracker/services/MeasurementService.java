@@ -5,6 +5,7 @@ import dev.selestrel.spring.weathertracker.repositories.MeasurementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -26,6 +27,7 @@ public class MeasurementService {
     }
 
     public void save(Measurement measurement) {
+        measurement.setRegisteredAt(LocalDateTime.now());
         measurementRepository.save(measurement);
     }
 }
